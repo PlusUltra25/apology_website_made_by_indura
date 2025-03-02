@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I'm Truly Sorry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      margin: 0;
+      padding: 0;
+      color: #333;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #ff80ab, #f50057);
+      color: #fff;
+      padding: 50px 20px;
+      border-radius: 0 0 30px 30px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    /* Play Music Button */
+    #play-music-btn {
+      background: #4CAF50;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #play-music-btn:hover {
+      background: #388E3C;
+      transform: scale(1.1);
+    }
+
+    /* Letter Section */
+    .section {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .section h2 {
+      color: #d81b60;
+      font-size: 2rem;
+    }
+
+    /* Photos Section */
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+    }
+
+    .photos img {
+      width: 180px;
+      height: 180px;
+      border-radius: 15px;
+      border: 5px solid #ff4081;
+      transition: transform 0.4s ease;
+    }
+
+    .photos img:hover {
+      transform: scale(1.1) rotate(3deg);
+    }
+
+    /* Punch Button */
+    #punch-btn {
+      background: #ff1744;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #punch-btn:hover {
+      background: #d50000;
+      transform: scale(1.1);
+    }
+
+    /* Shake Effect */
+    .shake {
+      animation: shake 0.6s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 90% { transform: translateX(-10px); }
+      20%, 80% { transform: translateX(10px); }
+      30%, 50%, 70% { transform: translateX(-15px); }
+      40%, 60% { transform: translateX(15px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>I'm Truly Sorry</h1>
+    <p>AB MAAN BHI JAO!! "MY QUEEN"💗</p>
+    <!-- Play Music Button -->
+    <button id="play-music-btn">Press Here🎵</button>
+  </header>
+  <main>
+    <!-- Letter Section -->
+    <section class="section">
+      <h2>A Letter to You</h2>
+      <p>Dear Subh💞💗,</p>
+      <p>
+        I know you're angry, and I truly regret my actions. I'm writing this letter to express my sincere apology.
+        I value every moment we share and every smile you bring into my life. Please allow me the chance to make things right
+        and show you how deeply I care.
+      </p>
+      <p>With all my heart,<br>Only yours<br>Indura🐭</p>
+    </section>
+
+    <!-- Photos Section -->
+    <section class="section photos">
+      <h2>I'm Sorry Again</h2>
+      <div>
+        <img src="photo1.jpg" alt="Memory 1">
+        <img src="photo2.jpg" alt="Memory 2">
+        <img src="photo3.jpg" alt="Memory 3">
+        <img src="photo4.jpg" alt="Memory 4">
+        <img src="photo5.jpg" alt="Memory 5">
+        <img src="photo6.jpg" alt="Memory 6">
+      </div>
+
+      <!-- Punch Button -->
+      <button id="punch-btn">👊 Punch This Indura</button>
+
+      <!-- Hidden Punch and Ouch Sounds -->
+      <audio id="punch-sound">
+        <source src="punch.mp3" type="audio/mp3">
+      </audio>
+      <audio id="ouch-sound">
+        <source src="ouch.mp3" type="audio/mp3">
+      </audio>
+    </section>
+  </main>
+
+  <!-- Background Music (Initially Paused) -->
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // Play Music Button
+    document.getElementById("play-music-btn").addEventListener("click", function() {
+      const bgMusic = document.getElementById("bg-music");
+      if (bgMusic.paused) {
+        bgMusic.play();
+        this.textContent = "🔇 Stop Music";
+      } else {
+        bgMusic.pause();
+        this.textContent = "Press Here🎵";
+      }
+    });
+
+    // Punch Button with Sound and Shake Effect
+    document.getElementById("punch-btn").addEventListener("click", function() {
+      const punchSound = document.getElementById("punch-sound");
+      const ouchSound = document.getElementById("ouch-sound");
+
+      punchSound.play(); // Play punch sound first
+
+      document.body.classList.add("shake"); // Shake effect
+      setTimeout(() => {
+        document.body.classList.remove("shake");
+        ouchSound.play(); // Play ouch sound after shake
+        alert("Ouch! Indura says: 'I LOVE YOU!!💞🐭'");
+      }, 600);
+    });
+  </script>
+</body>
+</html>
